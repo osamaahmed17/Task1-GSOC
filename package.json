@@ -1,0 +1,19 @@
+{
+  "name": "task-1",
+  "version": "1.0.0",
+  "description": "Rock Paper Scissor Game for CERN GSOC Challenge",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osamaahmed17/Task1-GSOC.git"
+  },
+  "author": "Osama Ahmed Tahir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/osamaahmed17/Task1-GSOC/issues"
+  },
+  "homepage": "https://github.com/osamaahmed17/Task1-GSOC#readme"
+}
