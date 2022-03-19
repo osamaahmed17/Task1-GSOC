@@ -1,5 +1,4 @@
-var socket = require("socket.io");
-var sokcetUtility = require("./utility/socketUtility");
+var sokcetUtility = require("../utility/socketUtility");
 
 
 
@@ -10,26 +9,16 @@ class resultController {
     }
 
     async getResult(roomID) {
-        var io = socket(server);
         var choice1 = "";
         var choice2 = "";
         var players = [];
         var getWinner = await this.getWinner(choice1, choice2);
-        var getRoom = await this.getRoomID(roomID);
+        var getRoom = await this.getRoomID(roomID, players, getWinner);
 
-        console.log(getRoom)
-        console.log("result");
     }
 
-    async getRoomID(roomID) {
-        var sokcetUtility = require("./utility/socketUtility");
-        io.sockets.to(roomID).emit("result", {
-            winner: winner,
-            choice1: choice1,
-            choice2: choice2
-        });
-        choice1 = "";
-        choice2 = "";
+    async getRoomID(roomID, players, getWinner) {
+        sokcetUtility = socketUtility.socketClass.socketFunction(roomID, players, getWinner);
     }
 
     async getWinner(p, c) {

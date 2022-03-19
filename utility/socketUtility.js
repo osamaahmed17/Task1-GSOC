@@ -1,9 +1,19 @@
 class socketClass {
     constructor() {
-        this.getResult = this.getResult.bind(this);
+        this.socketFunction = this.socketFunction.bind(this);
     }
 
     async socketFunction(roomID) {
+        var io = socket(server);
+
+        io.sockets.to(roomID).emit("result", {
+            winner: winner,
+            choice1: choice1,
+            choice2: choice2
+        });
+        choice1 = "";
+        choice2 = "";
+
         io.on("connection", function(socket) {
             console.log("made connection with socket");
 
@@ -102,3 +112,5 @@ class socketClass {
         });
     }
 }
+
+module.exports = new socketClass;
