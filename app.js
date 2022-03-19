@@ -1,13 +1,15 @@
 var expresss = require("express");
+
 var express = expresss();
-var winnerController = require("./controllers/winnerController");
-var resultController = require("./controllers/resultController");
-var socketController = require("./controllers/socketController");
+var resultController = require("./controller/resultController");
+//var socketController = require("./controller/socketController");
 
 
 
-var server
-    //Server Setup
+var server;
+
+
+//Server Setup
 if (process.env.PORT) {
     server = express.listen(process.env.PORT || 80, process.env.IP, function() {
         console.log("Server is running");
@@ -17,3 +19,4 @@ if (process.env.PORT) {
         console.log("Server is running");
     });
 }
+global.server = server
