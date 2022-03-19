@@ -1,67 +1,62 @@
-// app.js
-
-// Complete logic of game inside this function
+// Complete Logic Of Game Inside This Function
 const game = () => {
     let playerScore = 0;
     let computerScore = 0;
     let moves = 0;
 
-
-
-    // Function to
     const playGame = () => {
-            const rockBtn = document.querySelector('.rock');
-            const paperBtn = document.querySelector('.paper');
-            const scissorBtn = document.querySelector('.scissor');
-            const playerOptions = [rockBtn, paperBtn, scissorBtn];
-            const computerOptions = ['Rock', 'Paper', 'Scissors']
-            const remainingMoves = document.querySelector('.remainingMoves');
-            var currentMoves;
-            remainingMoves.addEventListener('change', function(e) {
-                currentMoves = e.target.value;
+        const rockBtn = document.querySelector('.rock');
+        const paperBtn = document.querySelector('.paper');
+        const scissorBtn = document.querySelector('.scissor');
+        const playerOptions = [rockBtn, paperBtn, scissorBtn];
+        const computerOptions = ['Rock', 'Paper', 'Scissors']
+        const remainingMoves = document.querySelector('.remainingMoves');
+        var currentMoves;
 
-                if (currentMoves > 0 && typeof(parseInt(currentMoves)) == 'number') {
-                    console.log(currentMoves);
+        remainingMoves.addEventListener('change', function(e) {
+            currentMoves = e.target.value;
 
-                    document.getElementsByClassName("options")[0].style.display = 'inline-block';
-                    document.getElementsByClassName("move")[0].style.display = 'inline-block';
-                    document.getElementsByClassName("movesleft")[0].style.display = 'inline-block';
+            // Hide Option Until User Enters Number Of Moves
+            if (currentMoves > 0 && typeof(parseInt(currentMoves)) == 'number') {
 
-
-                    currentGame(currentMoves);
-                } else {
-                    document.getElementsByClassName("options")[0].style.display = 'none';
-                    document.getElementsByClassName("move")[0].style.display = 'none';
-                    document.getElementsByClassName("movesleft")[0].style.display = 'inline-block';
-
-                }
-
-            })
-
-
-            const currentGame = (currentMoves) => {
-
-                playerOptions.forEach(option => {
-
-                    option.addEventListener('click', function() {
-                        const movesLeft = document.querySelector('.movesleft');
-                        moves++;
-                        movesLeft.innerText = `Moves Left: ${currentMoves - moves}`;
-                        const choiceNumber = Math.floor(Math.random() * 3);
-                        const computerChoice = computerOptions[choiceNumber];
-
-                        // Function to check who wins
-                        winner(this.innerText, computerChoice)
-                            // Calling gameOver function after 10 moves
-                        if (moves == currentMoves) {
-                            gameOver(playerOptions, movesLeft);
-                        }
-                    })
-                })
+                document.getElementsByClassName("options")[0].style.display = 'inline-block';
+                document.getElementsByClassName("move")[0].style.display = 'inline-block';
+                document.getElementsByClassName("movesleft")[0].style.display = 'inline-block';
+                currentGame(currentMoves);
+            } else {
+                document.getElementsByClassName("options")[0].style.display = 'none';
+                document.getElementsByClassName("move")[0].style.display = 'none';
+                document.getElementsByClassName("movesleft")[0].style.display = 'inline-block';
 
             }
+
+        })
+
+
+        // Calculate Current Number Of Moves Remaining
+        const currentGame = (currentMoves) => {
+            playerOptions.forEach(option => {
+
+                option.addEventListener('click', function() {
+                    const movesLeft = document.querySelector('.movesleft');
+                    moves++;
+                    movesLeft.innerText = `Moves Left: ${currentMoves - moves}`;
+                    const choiceNumber = Math.floor(Math.random() * 3);
+                    const computerChoice = computerOptions[choiceNumber];
+
+                    // Function to check who wins
+                    winner(this.innerText, computerChoice)
+                        // Calling gameOver function after 10 moves
+                    if (moves == currentMoves) {
+                        gameOver(playerOptions, movesLeft);
+                    }
+                })
+            })
+
         }
-        // Function to decide winner
+    }
+
+    // Function To Decide The Winner
     const winner = (player, computer) => {
         const result = document.querySelector('.result');
         const selection = document.querySelector('.selection');
@@ -112,9 +107,8 @@ const game = () => {
         }
     }
 
-    // Function to run when game is over
+    // Function To Run When Game Is Over
     const gameOver = (playerOptions, movesLeft) => {
-
         const chooseMove = document.querySelector('.move');
         const result = document.querySelector('.result');
         const reloadBtn = document.querySelector('.reload');
@@ -122,8 +116,6 @@ const game = () => {
         playerOptions.forEach(option => {
             option.style.display = 'none';
         })
-
-
         chooseMove.innerText = 'Game Over!!'
         movesLeft.style.display = 'none';
 
@@ -148,10 +140,10 @@ const game = () => {
     }
 
 
-    // Calling playGame function inside game
+    // Calling "playGame" Function Inside the "game"
     playGame();
 
 }
 
-// Calling the game function
+// Calling The Game Function
 game();
