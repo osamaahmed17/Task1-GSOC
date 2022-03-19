@@ -1,0 +1,151 @@
+    /* styles.css */
+    /* universal selector - Applies to whole document */
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background: #ffffff;
+        color: #fff;
+    }
+    /* To center everything in game */
+    
+    .game {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+    /* Title of the game */
+    
+    .title {
+        position: absolute;
+        top: 0;
+        font-size: 4rem;
+        z-index: 2;
+        color: #000;
+        font-family: fantasy;
+    }
+    /* Score Board */
+    
+    .score {
+        display: flex;
+        width: 30vw;
+        justify-content: space-evenly;
+        position: absolute;
+        top: 70px;
+        z-index: 1;
+        color: #000;
+        font-family: fantasy;
+    }
+    /* Score */
+    
+    .p-count,
+    .c-count {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #000;
+        font-family: fantasy;
+    }
+
+    .opponent {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-top: 3rem;
+        color: #000;
+        font-family: fantasy;
+    }
+    /* displaying three buttons in one line */
+    
+    .options {
+        display: flex;
+        width: 100vw;
+        justify-content: space-evenly;
+        margin-top: 1.5rem;
+        color: #000;
+        font-family: fantasy;
+        margin-left: 900px;
+    }
+    /* Styling on all three buttons */
+    
+    .rock,
+    .paper,
+    .scissor {
+        padding: 1.0rem;
+        width: 300px;
+        border-radius: 20px;
+        background: black;
+        outline: none;
+        border-color: black;
+        border: none;
+        cursor: pointer;
+        font-family: fantasy;
+    }
+    
+    .enterMoves {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #000;
+        font-family: fantasy;
+    }
+
+    .remainingMoves {
+        color: #000;
+        font-family: fantasy;
+    }
+
+    .move {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #000;
+        font-family: fantasy;
+    }
+
+    .movesleft {
+        font-size: 1.2rem;
+        color: #000;
+        font-family: fantasy;
+    }
+    /* Reload button style */
+    
+    .reload {
+        display: none;
+        margin-top: 2rem;
+        padding: 1rem;
+        background: black;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    
+    .result {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: #000;
+        font-family: fantasy;
+    }
+
+    .selection {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: #000;
+        font-family: fantasy;
+    }
+    /* Responsive Design */
+    
+    @media screen and (max-width: 612px) {
+        .title {
+            text-align: center;
+        }
+        .score {
+            position: absolute;
+            top: 200px;
+            width: 100vw;
+        }
+        .options {
+            width: 100vw;
+        }
+    }

@@ -1,10 +1,12 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,
-                   initial-scale=1.0">
+				initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>Rock Paper Scissor</title>
 </head>
@@ -13,34 +15,40 @@
     <section class="game">
         <!--Title -->
         <div class="title">Rock Paper Scissor</div>
+        <div class="enterMoves">Please Enter Number of Moves and Click Enter</div>
+        <br>
+        <input class="remainingMoves" type="text" />
 
+        <br>
         <!--Display Score of player and computer -->
         <div class="score">
             <div class="playerScore">
-                <h2>Player</h2>
+                <h2 class="opponent">Player</h2>
                 <p class="p-count count">0</p>
 
             </div>
             <div class="computerScore">
-                <h2>Computer</h2>
+                <h2 class="opponent">Computer</h2>
                 <p class="c-count count">0</p>
 
             </div>
         </div>
 
-        <div class="move">Choose your move</div>
+        <div class="move" style="display:none;">Choose Your Move</div>
 
         <!--Number of moves left before game ends -->
-        <div class="movesleft">Moves Left: 10 </div>
+        <div style="display:none" class="movesleft"></div>
 
         <!--Options available to player to play game -->
-        <div class="options">
+        <div class="options" style="display:none;">
             <button class="rock">Rock</button>
             <button class="paper">Paper</button>
             <button class="scissor">Scissors</button>
         </div>
 
         <!--Final result of game -->
+        <div class="selection"></div>
+
         <div class="result"></div>
 
         <!--Reload the game -->
@@ -48,7 +56,7 @@
 
     </section>
 
-    <script src="app.js"></script>
+    <script src="./js/result.js"></script>
 </body>
 
 </html>
